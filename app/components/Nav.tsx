@@ -23,13 +23,12 @@ export default function Nav() {
                         </a>
                         {
                                 isLoaded && !user &&
-                                <a href="/login" className="-m-1.5 p-1.5">Sign in</a>
+                                <a href="/sign-in" className="-m-1.5 p-1.5">Sign in</a>
                         }
                             
                         {
                                 isLoaded && user &&
-                                <div className="flex w-1/5 justify-end items-center">
-                                    <p className="w-1/5"> {user.firstName} </p>
+                                <div className="flex w-1/5 ml-2 justify-end items-center">
                                     <UserButton afterSignOutUrl="/" />
                                 </div> 
                         }                    
