@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Nav from './components/Nav'
 import { ClerkProvider } from '@clerk/nextjs'
+import { ReactQueryClientProvider } from './components/ReactQueryClientProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,15 +18,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <Nav />
-          <div className='container m-10'>
-            {children}
-          </div>
-        </body>
-      </html>
-    </ClerkProvider>
+    <ReactQueryClientProvider>
+      <ClerkProvider>
+          <html lang="en">
+            <body className={inter.className}>
+          
+                <Nav />
+                <div className='container m-10'>
+                  {children}
+                </div>
+
+            </body>
+          </html>
+      </ClerkProvider>
+    </ReactQueryClientProvider>
+
   )
 }

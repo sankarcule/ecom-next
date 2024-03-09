@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import AddToCart from "../components/addToCart";
 
 export default function Cart() {
     return (
@@ -26,13 +27,8 @@ export default function Cart() {
                                 <p className="text-base	font-medium	text-inherit line-through ml-3.5">$1.11</p>
                             </div>
                             <div className="w-1/5 flex items-center">
-                                <p className="text-xs font-normal text-slate-400 mr-3.5	">Quantity: 1</p>
-                                <button className="bg-white hover:bg-gray-100 text-gray-800 py-0.5 px-1 border border-gray-400 rounded shadow mr-2">
-                                    -
-                                </button>
-                                <button className="bg-white hover:bg-gray-100 text-gray-800 py-0.5 px-1 border border-gray-400 rounded shadow">
-                                    +
-                                </button>
+                                <p className="text-xs font-normal text-slate-400 mr-3.5	">Quantity: </p>
+                                <AddToCart></AddToCart>
                             </div>
                         </div>
                     </div>
