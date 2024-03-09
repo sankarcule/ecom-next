@@ -6,7 +6,8 @@ export interface Product {
     price: number,
     rating: number,
     discountPercentage: number,
-    description: string
+    description: string,
+    quantity: number
 }
 
 export interface ProductFetchData {

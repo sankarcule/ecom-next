@@ -2,7 +2,6 @@
 
 import React from "react";
 import { ProductCard } from "../components/productCard";
-import Link from "next/link";
 import {useQuery} from "@tanstack/react-query";
 import { fetchProducts } from "../api/product";
 import { useState } from "react";

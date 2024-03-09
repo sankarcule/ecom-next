@@ -30,7 +30,7 @@ export function ProductCard({product}: ProductProps) {
         <div className="ml-5 mb-5">
           <p className="mb-1 font-bold">{product.title}</p>
           <p className="mb-4 font-medium">{product.price}$</p>
-          <AddToCart></AddToCart>
+          <AddToCart item={product}></AddToCart>
         </div>
       </Card>
 

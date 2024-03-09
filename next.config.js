@@ -8,8 +8,12 @@ const nextConfig = {
           },
           {
             protocol: 'https',
-            hostname: 'cdn-icons-png.flaticon.com',
+            hostname: 'images.unsplash.com',
           },
+          {
+            protocol: 'https',
+            hostname: 'cdn-icons-png.flaticon.com',
+          }
         ],
       },
 }

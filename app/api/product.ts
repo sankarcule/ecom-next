@@ -6,3 +6,10 @@ export const fetchProducts = async (query: any): Promise<ProductFetchData> => {
     console.log(data);
     return data
 }
+
+export const fetchSingleProduct = async (query: any): Promise<ProductFetchData> => {
+    const data = await fetch('https://dummyjson.com/products/'+query.id)
+                        .then(res => res.json())
+    console.log(data);
+    return data
+}
