@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useCartStore } from "../store";
+import { useEffect } from "react";
 
 
 export default function AddToCart({item}: any) {
@@ -8,6 +9,10 @@ export default function AddToCart({item}: any) {
     const addItem = useCartStore((state) => state.addItem);
     const removeItem = useCartStore((state) => state.removeItem);
     let newItem = {...item, quantity: quantity}
+
+    useEffect(() => {
+        useCartStore.persist.rehydrate()
+      }, [])
 
     return (
         <div className="flex justify-start flex-wrap">

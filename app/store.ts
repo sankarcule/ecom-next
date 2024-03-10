@@ -12,27 +12,32 @@ type CartStore = {
 }
 
 export const useCartStore = create<CartStore>()(
-    persist((set, get) => ({
+    immer(persist((set, get) => ({
         items: [],
         addItem: (item) => {
+            if (item.quantity > 0) {
+                set((state) => {
+                    state.items.find((i)=> i.id == item.id).quantity += 1
+                })
+                return
+            }
             let newItem = item;
             newItem.quantity = newItem.quantity ? newItem.quantity + 1 : 1;
             set((state) => ( {
                 items:[...state.items.filter((i)=> i.id != item.id), newItem] 
             }))
-            },
+        },
         removeItem: (item) => {
-            let newItem = item;
-            newItem.quantity = newItem.quantity ? newItem.quantity - 1 : 0;
-            if (newItem.quantity == 0) {
+            let quantity = item.quantity ? item.quantity - 1 : 0;
+            if (quantity == 0) {
                 set((state) => ( {
                     items: state.items.filter((i)=> i.id != item.id)
                 }))
                 return
             }
-            set((state) => ( {
-                items:[...state.items.filter((i)=> i.id != item.id), newItem] 
-            }))
+            set((state) => {
+                state.items.find((i)=> i.id == item.id).quantity = quantity
+            })
         },
         totalOrderAmount: () => {
             let amount = 0 
@@ -41,5 +46,6 @@ export const useCartStore = create<CartStore>()(
         } 
     }), {
         name: 'cart-storage',
-        storage: createJSONStorage(() => sessionStorage)
-    })) 
+        skipHydration: true,
+        storage: createJSONStorage(() => localStorage)
+    }))) 

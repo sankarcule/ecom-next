@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import AddToCart from "../components/addToCart";
 import { useCartStore } from "../store";
 import Link from "next/link";
@@ -9,6 +9,10 @@ import Link from "next/link";
 export default function Cart() {
     const items = useCartStore((state)=> state.items);
     const totalOrderAmount = useCartStore((state)=> state.totalOrderAmount);
+
+    useEffect(() => {
+      useCartStore.persist.rehydrate()
+    }, [])
 
     return (
         <>
