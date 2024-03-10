@@ -71,6 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: #f6f6f6;
+    min-height: 100vh;
   }
 }

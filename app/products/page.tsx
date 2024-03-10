@@ -22,36 +22,35 @@ export default function Products() {
     }
 
     return (
-        <div className="">
-            
-            <div className="flex justify-between mb-6">
-                <p className="font-semibold">Products</p>
-                <div className="pagination font-light text-sm">
-                    <p className="">Showig {data?.skip + 1} to {data?.limit + data?.skip} of {data?.total} items</p>
-                    <div className="flex justify-around font-medium	">
-                        { skip < 10 ? <button type="button" disabled className="opacity-50 cursor-default cursor-pointer" >Previous</button> : 
-                            <button type="button" className="cursor-pointer" 
-                            onClick={()=> {
-                                setSkip(skip-10)
-                                refetch();
-                            }}> Previous </button>
-                         }  
-                        { limit+skip >= data?.total ? <button type="button" disabled className="opacity-50 cursor-default	cursor-pointer" >Next</button> : 
-                            <button type="button" className="cursor-pointer" 
-                            onClick={()=> {
-                                setSkip(skip+10)
-                                refetch();
-                            }}> Next </button>
-                         }
-                        
-                    </div>
-                </div>
-            </div>
-            <div className="flex justify-start flex-wrap">
-                {data?.products?.map((el: Product) => (
-                    <ProductCard key={el.id} product={el} />
-                ))}
-            </div>
-        </div>
+        <>
+          <div className="flex justify-between mb-6">
+              <p className="font-semibold">Products</p>
+              <div className="pagination font-light text-sm">
+                  <p className="">Showig {data?.skip + 1} to {data?.limit + data?.skip} of {data?.total} items</p>
+                  <div className="flex justify-around font-medium	">
+                      { skip < 10 ? <button type="button" disabled className="opacity-50 cursor-default cursor-pointer" >Previous</button> : 
+                          <button type="button" className="cursor-pointer" 
+                          onClick={()=> {
+                              setSkip(skip-10)
+                              refetch();
+                          }}> Previous </button>
+                        }  
+                      { limit+skip >= data?.total ? <button type="button" disabled className="opacity-50 cursor-default	cursor-pointer" >Next</button> : 
+                          <button type="button" className="cursor-pointer" 
+                          onClick={()=> {
+                              setSkip(skip+10)
+                              refetch();
+                          }}> Next </button>
+                        }
+                      
+                  </div>
+              </div>
+          </div>
+          <div className="flex justify-start flex-wrap">
+              {data?.products?.map((el: Product) => (
+                  <ProductCard key={el.id} product={el} />
+              ))}
+          </div>
+        </>
     )
 }

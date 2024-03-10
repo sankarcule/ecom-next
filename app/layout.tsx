@@ -24,7 +24,7 @@ export default function RootLayout({
             <body className={inter.className}>
           
                 <Nav />
-                <div className='container m-10'>
+                <div className='container m-10 mt-[150px]'>
                   {children}
                 </div>
 
