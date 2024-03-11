@@ -31,7 +31,7 @@ export default function Cart() {
                       : 
                         <div className="border-box rounded min-h-64 bg-white p-6 w-full">  
                           { items.map((i) => (
-                            <div className="flex mb-[40px] text-black	text-base w-full">
+                            <div key={i.id} className="flex mb-[40px] text-black	text-base w-full">
                               <Link href={'/products/'+i.id} className="flex flex-row gap-px justify-start items-start mt-0.5 ml-1 w-2/5">
                                   <Image 
                                       width={60}
