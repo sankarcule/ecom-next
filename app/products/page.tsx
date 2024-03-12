@@ -26,7 +26,7 @@ export default function Products() {
           <div className="flex justify-between mb-6">
               <p className="font-semibold">Products</p>
               <div className="pagination font-light text-sm">
-                  <p className="">Showig {data?.skip + 1} to {data?.limit + data?.skip} of {data?.total} items</p>
+                  <p className="">Showig {data!.skip + 1} to {data!.limit + data!.skip} of {data?.total} items</p>
                   <div className="flex justify-around font-medium	">
                       { skip < 10 ? <button type="button" disabled className="opacity-50 cursor-default cursor-pointer" >Previous</button> : 
                           <button type="button" className="cursor-pointer" 
@@ -35,7 +35,7 @@ export default function Products() {
                               refetch();
                           }}> Previous </button>
                         }  
-                      { limit+skip >= data?.total ? <button type="button" disabled className="opacity-50 cursor-default	cursor-pointer" >Next</button> : 
+                      { limit+skip >= data!.total ? <button type="button" disabled className="opacity-50 cursor-default	cursor-pointer" >Next</button> : 
                           <button type="button" className="cursor-pointer" 
                           onClick={()=> {
                               setSkip(skip+10)

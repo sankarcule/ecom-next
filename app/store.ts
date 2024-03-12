@@ -8,7 +8,7 @@ type CartStore = {
     items: Product[],
     addItem: (item: Product) => void,
     removeItem: (item: Product) => void,
-    totalOrderAmount: () => void
+    totalOrderAmount: () => number
 }
 
 export const useCartStore = create<CartStore>()(
@@ -17,7 +17,7 @@ export const useCartStore = create<CartStore>()(
         addItem: (item) => {
             if (item.quantity > 0) {
                 set((state) => {
-                    state.items.find((i)=> i.id == item.id).quantity += 1
+                    state.items.find((i)=> i.id == item.id)!.quantity += 1
                 })
                 return
             }
@@ -36,7 +36,7 @@ export const useCartStore = create<CartStore>()(
                 return
             }
             set((state) => {
-                state.items.find((i)=> i.id == item.id).quantity = quantity
+                state.items.find((i)=> i.id == item.id)!.quantity = quantity
             })
         },
         totalOrderAmount: () => {

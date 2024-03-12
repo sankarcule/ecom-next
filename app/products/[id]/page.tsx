@@ -24,7 +24,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
                 <Link href="/products" className="font-normal underline"> Go Back</Link>
             </div>
             <div className="w-[48%] mr-[2%]">
-                <Image src={data?.images[0]}
+                <Image src={data!.images[0]}
                     width={500}
                     height={500}
                     alt="product image"/>
